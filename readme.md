@@ -34,7 +34,7 @@ npm install
 ### 3. Execute o script
 
 ```bash
-node scraper.js
+node scrapper.js
 ```
 
 ### 4. Veja os downloads
