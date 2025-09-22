@@ -53,7 +53,7 @@ npm install
 ### 3. Execute o script
 
 ```bash
-node scrapper.js
+node index.js
 ```
 
 ### 4. Veja os downloads
@@ -62,7 +62,7 @@ Após a execução do script, os arquivos extraídos serão salvos na pasta `dow
 
 ## Como usar
 
-1. **Execute o programa**: `node scrapper.js`
+1. **Execute o programa**: `node index.js`
 2. **Digite a URL**: Insira o endereço do site (https:// será adicionado automaticamente se não informado)
 3. **Escolha o tipo de arquivo**: Selecione uma opção do menu (1-5):
    - 1 - ZIP (Arquivos compactados)
@@ -91,6 +91,13 @@ Após a execução do script, os arquivos extraídos serão salvos na pasta `dow
 - **Chrome/Chromium**: Detecta e usa automaticamente o navegador disponível
 - **Headless**: Executa em modo background para melhor performance
 
+### Arquitetura Modular
+- **Separação de responsabilidades**: Cada módulo tem uma função específica
+- **Manutenibilidade**: Código mais fácil de manter e modificar
+- **Reutilização**: Módulos podem ser reutilizados em outros projetos
+- **Testabilidade**: Cada módulo pode ser testado independentemente
+- **Legibilidade**: Código mais limpo e organizado
+
 ## Dependências do projeto
 
 - **puppeteer**: Biblioteca usada para automatizar o navegador
@@ -104,10 +111,17 @@ Após a execução do script, os arquivos extraídos serão salvos na pasta `dow
 
 ```bash
 puppeteer-scraper/
-├── downloads/         # Pasta onde os arquivos baixados serão salvos
-├── scrapper.js        # Script principal com todas as funcionalidades
-├── package.json       # Configurações do projeto e dependências
-└── README.md          # Documentação do projeto
+├── src/                    # Pasta com os módulos do projeto
+│   ├── constants.js        # Constantes e configurações
+│   ├── utils.js           # Funções utilitárias
+│   ├── ui.js              # Interface do usuário
+│   ├── browser.js         # Configuração do navegador
+│   ├── extractor.js       # Extração de links
+│   └── downloader.js      # Sistema de download e retry
+├── downloads/             # Pasta onde os arquivos baixados serão salvos
+├── index.js              # Arquivo principal
+├── package.json          # Configurações do projeto e dependências
+└── README.md             # Documentação do projeto
 ```
 
 ## Observações
