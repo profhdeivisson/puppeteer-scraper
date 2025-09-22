@@ -176,6 +176,12 @@ const main = async () => {
         do {
             url = await getUrlFromUser(rl);
 
+            // Adicionar "https://" se o usuário não especificou o protocolo
+            if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                url = 'https://' + url;
+                console.log(`🔗 Protocolo adicionado automaticamente: ${url}`);
+            }
+
             if (!isValidUrl(url)) {
                 console.log('❌ URL inválida! Por favor, digite uma URL válida (ex: https://exemplo.com)');
             }
